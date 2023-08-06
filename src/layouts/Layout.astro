@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import Nav from '../components/Nav.vue';
+import SvelteComponent  from '../components/SvelteComponent.svelte';
 ---
 
 <!DOCTYPE html>
@@ -17,6 +19,8 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Nav></Nav>
+		<SvelteComponent client:only="svelte"/>
 		<slot />
 	</body>
 </html>
@@ -26,11 +30,6 @@ const { title } = Astro.props;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151A;
-		background-size: 224px;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
