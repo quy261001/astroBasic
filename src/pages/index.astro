@@ -1,12 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Intro from '../components/Intro.svelte';
+import BlogImage from '../components/BlogImage.svelte'
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Blog Astro">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<div class="p-5">
+			<Intro/>
+		</div>
+		<div class="h-5 bg-black"></div>
+		<div class="p-5">
+			<BlogImage client:visible/>
+		</div>
 	</main>
 </Layout>
-
-<style>
-</style>

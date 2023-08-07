@@ -5,7 +5,6 @@ interface Props {
 
 const { title } = Astro.props;
 import Nav from '../components/Nav.vue';
-import SvelteComponent  from '../components/SvelteComponent.svelte';
 ---
 
 <!DOCTYPE html>
@@ -19,9 +18,11 @@ import SvelteComponent  from '../components/SvelteComponent.svelte';
 		<title>{title}</title>
 	</head>
 	<body>
-		<Nav></Nav>
-		<SvelteComponent client:only="svelte"/>
+		<Nav client:load></Nav>
 		<slot />
+		<footer>
+			<div class="h-20 bg-black mt-10"></div>
+		</footer>
 	</body>
 </html>
 <style is:global>
