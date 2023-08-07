@@ -18,6 +18,7 @@
   
   <script setup>
     import mainPortrait from '/main-portrait.jpg'
+    console.log('Component Intro')
   </script>
   
   

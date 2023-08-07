@@ -1,17 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Intro from '../components/Intro.svelte';
-import BlogImage from '../components/BlogImage.svelte'
+import BlogImage from '../components/BlogImage.svelte';
+// const titleTemplate = `<p> Test title </p>`
 ---
 
 <Layout title="Blog Astro">
 	<main>
+		<!-- <div set:html={titleTemplate}></div> -->
 		<div class="p-5">
-			<Intro/>
+			<Intro client:click/>
 		</div>
 		<div class="h-5 bg-black"></div>
-		<div class="p-5">
+		<div class="p-5" class:list={[ 'abc', { xyz: true, world: false }, new Set([ 'work', 'astro' ]) ]}>
 			<BlogImage client:visible/>
 		</div>
 	</main>
 </Layout>
+<script>
+
+</script>
