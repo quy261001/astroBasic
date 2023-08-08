@@ -1,5 +1,7 @@
 <template>
-  <nav class="relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-32">
+  <nav
+    class="relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-32"
+  >
     <div class="flex items-center space-x-2">
       <img :src="avatar" alt="Profile picture of Hua" />
     </div>
@@ -18,15 +20,19 @@
     <div v-if="showModal" @click="closeModal" class="modal w-20">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div class="flex flex-col items-center space-y-20 text-3xl mb-20 font-bold">
+        <div
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <div
+            class="flex flex-col items-center space-y-20 text-3xl mb-20 font-bold"
+          >
             <a href="/">Home</a>
             <a href="/blog">Blog</a>
             <a href="/contact">Contact</a>
           </div>
           <div class="flex space-x-24">
             <div v-for="(item, index) in ArrayIcon" :key="index">
-              <img :src="item.icon" :alt="item.alt">
+              <img :src="item.icon" :alt="item.alt" />
             </div>
           </div>
         </div>
@@ -36,22 +42,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-let avatar = "/avatar.png";
+import { ref } from 'vue';
+let avatar = '/avatar.png';
+let test = 'abc';
+console.log('Navigation');
 const ArrayIcon = [
   {
     icon: '/twitter.png',
-    alt: 'twitter'
+    alt: 'twitter',
   },
   {
     icon: '/youtube.png',
-    alt: 'youtube'
+    alt: 'youtube',
   },
   {
     icon: '/dribble.png',
-    alt: 'dribble'
-  }
-]
+    alt: 'dribble',
+  },
+];
 const showModal = ref(false);
 
 const closeModal = () => {

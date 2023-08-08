@@ -2,21 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import Intro from '../components/Intro.svelte';
 import BlogImage from '../components/BlogImage.svelte';
+import Contact from '../components/Contact.astro';
+import Product from '../components/Product/index.svelte';
+import CartFlyoutToggle from '../components/CartFlyoutToggle.svelte';
+import CartFlyout from '../components/CartFlyout.svelte';
+import AddToCartForm from '../components/AddToCartForm.svelte';
+import astroConfig from '../../astro.config.mjs';
 // const titleTemplate = `<p> Test title </p>`
+const item: CartItemDisplayInfo = {
+  id: 'astronaut-figurine',
+  name: 'Astronaut Figurine',
+  imageSrc: '/avatar.png',
+};
 ---
 
 <Layout title="Blog Astro">
-	<main>
-		<!-- <div set:html={titleTemplate}></div> -->
-		<div class="p-5">
-			<Intro client:click/>
-		</div>
-		<div class="h-5 bg-black"></div>
-		<div class="p-5" class:list={[ 'abc', { xyz: true, world: false }, new Set([ 'work', 'astro' ]) ]}>
-			<BlogImage client:visible/>
-		</div>
-	</main>
+  <main>
+    <!-- <div set:html={titleTemplate}></div> -->
+    <div class="p-5">
+      <Intro />
+    </div>
+    <div class="h-5 bg-black"></div>
+    <div
+      class="p-5"
+      class:list={[
+        'abc',
+        { xyz: true, world: false },
+        new Set(['work', 'astro']),
+      ]}
+    >
+      <BlogImage client:visible />
+    </div>
+    <Contact />
+    <Product client:load />
+    <CartFlyoutToggle client:load />
+    <div class="product-layout">
+      <div>
+        <AddToCartForm client:load>
+          <button type="submit">Add to cart</button>
+        </AddToCartForm>
+      </div>
+      <img src={item.imageSrc} alt={item.name} />
+    </div>
+    <CartFlyout client:load />
+  </main>
 </Layout>
-<script>
-
-</script>

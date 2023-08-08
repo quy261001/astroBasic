@@ -7,7 +7,10 @@ export function onClickDirective() {
             name: "click", // Provide the desired name for your custom client directive
             entrypoint: "./src/utils/click-directive/click.js",
           });
+          addWatchFile({
+            path: '/src/middleware/index.ts'
+          })
         },
-      },
+      },  
     };
   }
